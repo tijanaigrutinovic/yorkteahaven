@@ -45,7 +45,6 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "django_sass",
 ]
 
 MIDDLEWARE = [
@@ -63,9 +62,9 @@ ROOT_URLCONF = "yorkteahaven.urls"
 
 TEMPLATES = [
     {
-        "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [
-            os.path.join(PROJECT_DIR, "templates"),
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [
+            os.path.join(BASE_DIR, 'yorkteahaven', 'templates'),
         ],
         "APP_DIRS": True,
         "OPTIONS": {

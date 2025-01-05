@@ -1,46 +1,355 @@
-{% load static wagtailcore_tags wagtailuserbar %}
-
+{% load static %}
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <title>
-            {% block title %}
-            {% if page.seo_title %}{{ page.seo_title }}{% else %}{{ page.title }}{% endif %}
-            {% endblock %}
-            {% block title_suffix %}
-            {% wagtail_site as current_site %}
-            {% if current_site and current_site.site_name %}- {{ current_site.site_name }}{% endif %}
-            {% endblock %}
-        </title>
-        {% if page.search_description %}
-        <meta name="description" content="{{ page.search_description }}" />
-        {% endif %}
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Moja stranica{% endblock %}</title>
+    {% block head %}
+    <!-- Dodatni head sadržaji, kao što su linkovi ka CSS fajlovima -->
+    {% endblock %}
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
 
-        {# Force all links in the live preview panel to be opened in a new tab #}
-        {% if request.in_preview_panel %}
-        <base target="_blank">
-        {% endif %}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
+</head>
+<body>
+<header>
+    <nav>
+        <a class="logo" href="/">
+           <img src="{% static 'images/logo.png' %}" alt="logo">
+        </a>
+        <div class="hamburger" id="hamburger">
+           <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30" viewBox="0 0 50 50">
+              <path d="M 0 7.5 L 0 12.5 L 50 12.5 L 50 7.5 Z M 0 22.5 L 0 27.5 L 50 27.5 L 50 22.5 Z M 0 37.5 L 0 42.5 L 50 42.5 L 50 37.5 Z"></path>
+           </svg>
+        </div>
+        <ul class="nav-list">
+           <li class="nav-item "><a href="#about">About Tea</a></li>
+           <li class="nav-item"><a href="#projects">Famous Tea</a></li>
+           <li class="nav-item"><a href="#skills">Brew the Perfect Tea</a></li>
+           <li class="nav-item"><a href="#contact">Your Favorite Tea</a></li>
+        </ul>
+        <div class="nav-list">
+        </div>
+     </nav>
+</header>
+        
 
-        {# Global stylesheets #}
-        <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+    <main>
+        <!-- hero -->
+        <section class="hero">
+            <div class="hero-left">
+              <div class="cup-container">
+                <img src="{% static 'images/tea-cup-hero.png' %}" alt="Šolja čaja" class="tea-cup">
+                <div class="steam"></div>
+                <div class="steam"></div>
+                <div class="steam"></div>
+              </div>
+            </div>
+            <div class="hero-right">
+              <h1>Discover the Magic of Teas from the UK</h1>
+              <p>Otkrijte priče iza svakog lista čaja i uživajte u trenucima spokoja.</p>
+              <a href="#about" class="cta-button">Explore the Famous Teas</a>
+            </div>
+          </section>
+        <!--  About Tea in the UK -->
+        <section class="tea-in-uk">
+            <div class="container">
+                <h2 class="section-title">Tea in the UK</h2>
+                <div class="uk-fun-fact">
+                    <div class="content">
+                        <p>Tea in the UK is more than just a beverage – it’s a ritual! From the iconic ‘afternoon tea’ to the everyday cup, tea is deeply embedded in British culture. Whether it's for socializing or taking a break, Brits are known to drink tea at any time of the day.</p>
+                    </div>
+                    <div class="fun-fact">
+                        <h3>Did you know? </h3>
+                        <p>Britons drink an average of 100 million cups of tea every day!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Famous Teas from the UK -->
+        <section class="famous-teas">
+            <div class="container">
+                <h2 class="section-title">Famous Teas from the UK</h2>
+                <div class="cards">
+                    <!-- Card 1: English Breakfast Tea -->
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="{% static 'images/english-breakfast-1.png' %}" alt="English Breakfast Tea">
+                        </div>
+                        <div class="card-description">
+                            <h3>Yorkshire Tea</h3>
+                            <p>A strong and full-bodied tea, perfect for a hearty breakfast.</p>
+                        </div>
+                    </div>
+        
+                    <!-- Card 2: Earl Grey -->
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="{% static 'images/english-breakfast-1.png' %}" alt="Earl Grey">
+                        </div>
+                        <div class="card-description">
+                            <h3>Earl Grey</h3>
+                            <p>A refreshing black tea with a hint of bergamot.</p>
+                        </div>
+                    </div>
+        
+                    <!-- Card 3: Darjeeling -->
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="{% static 'images/english-breakfast-1.png' %}" alt="Darjeeling">
+                        </div>
+                        <div class="card-description">
+                            <h3>Darjeeling</h3>
+                            <p>Known as ‘the champagne of teas,’ this delicate tea is perfect for a relaxing afternoon.</p>
+                        </div>
+                    </div>
+        
+                    <!-- Card 4: Assam -->
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="{% static 'images/english-breakfast-1.png' %}" alt="Assam">
+                        </div>
+                        <div class="card-description">
+                            <h3>Assam</h3>
+                            <p>A rich and robust tea from India, perfect for a morning pick-me-up.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        {% block extra_css %}
-        {# Override this in templates to add extra stylesheets #}
-        {% endblock %}
-    </head>
+        
+          
+          
+        <!-- How to Brew the Perfect Tea -->
+         
+        <section id="how-to-brew">
+            <h2>How to Brew the Perfect Tea</h2>
+            
+            <!-- First part: Water Temperature -->
+            <div class="brew-tip" id="water-temp">
+              <h3>Water Temperature</h3>
+              <p class="short-description">For black tea, water should be nearly boiling (around 100°C), while for green tea, aim for around 70-80°C.</p>
+              <button class="learn-more">Tip</button>
+              <p class="full-description">The right water temperature is essential for brewing your tea perfectly. Boiling water extracts full flavor from black tea, while cooler water helps preserve the delicate taste of green tea.</p>
+            </div>
+          
+            <!-- Second part: Brew Time -->
+            <div class="brew-tip" id="brew-time">
+              <h3>Brew Time</h3>
+              <p class="short-description">For black tea, brew for 3-5 minutes. Green tea only needs 2-3 minutes.</p>
+              <button class="learn-more">Tip</button>
+              <p class="full-description">The brew time determines the strength of your tea. For a perfect cup, avoid steeping for too long as it can make the tea bitter.</p>
+            </div>
+            <div class="brew-tip" id="brew-time">
+                <h3>Brew Time</h3>
+                <p class="short-description">For black tea, brew for 3-5 minutes. Green tea only needs 2-3 minutes.</p>
+                <button class="learn-more">Tip</button>
+                <p class="full-description">The brew time determines the strength of your tea. For a perfect cup, avoid steeping for too long as it can make the tea bitter.</p>
+              </div>
+              <div class="brew-tip" id="brew-time">
+                <h3>Brew Time</h3>
+                <p class="short-description">For black tea, brew for 3-5 minutes. Green tea only needs 2-3 minutes.</p>
+                <button class="learn-more">Tip</button>
+                <p class="full-description">The brew time determines the strength of your tea. For a perfect cup, avoid steeping for too long as it can make the tea bitter.</p>
+              </div>
+          
+            <!-- Additional parts: Storage Tips and Tea for Occasions... -->
+          </section>
+          
+        <!-- What's Your Favorite Tea? -->
 
-    <body class="{% block body_class %}{% endblock %}">
-        {% wagtailuserbar %}
+        <div class="container">
+            <h1>What's Your Favorite Tea?</h1>
+            <div id="question-container">
+              <!-- Questions and options will appear here -->
+            </div>
+            <div id="result-container" style="display:none;">
+              <!-- Final tea recommendation will appear here -->
+            </div>
+            <div id="bonus-container" style="display:none;">
+              <!-- Bonus question and enjoy message -->
+            </div>
+            <button id="play-again" onclick="startGame()" style="display:none;">Play Again</button>
+          </div>
+        
+</section>
+    </main>
 
-        {% block content %}{% endblock %}
+    <footer>
+        <div class="footer-container">
+            <div class="footer-left">
+                <p>&copy; 2025 Tea Lover. All rights reserved.</p>
+                <p>Created with love by a Tea enthusiast from Serbia.</p>
+            </div>
+            <div class="footer-right">
+                <ul class="social-links">
+                    <li><a href="https://twitter.com" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a></li>
+                    <li><a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a></li>
+                    <li><a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <script>
+        const questions = [
+  {
+    question: "How do you prefer your tea?",
+    options: ["Strong", "Mild", "Sweet", "Iced"],
+    type: "preference"
+  },
+  {
+    question: "What's your favorite time for tea?",
+    options: ["Morning", "Afternoon", "Evening", "Anytime!"],
+    type: "time"
+  },
+  {
+    question: "Do you like milk with your tea?",
+    options: ["Yes", "No", "Only a little", "I'm not sure"],
+    type: "milk"
+  },
+  {
+    question: "What's your go-to tea flavor?",
+    options: ["English Breakfast", "Earl Grey", "Green Tea", "Fruit Tea"],
+    type: "flavor"
+  },
+  {
+    question: "Do you prefer loose leaf or tea bags?",
+    options: ["Loose Leaf", "Tea Bags", "Both", "Neither"],
+    type: "type"
+  }
+];
 
-        {# Global javascript #}
-        <script type="text/javascript" src="{% static 'js/yorkteahaven.js' %}"></script>
+const bonusQuestions = [
+  {
+    question: "When is the best time for tea?",
+    options: ["When you're happy", "When you're sad", "Anytime!"]
+  },
+  {
+    question: "What's the fastest way to make tea?",
+    options: ["Microwave", "Boil water on the stove", "Ask a friend to make it for you"]
+  }
+];
 
-        {% block extra_js %}
-        {# Override this in templates to add extra javascript #}
-        {% endblock %}
-    </body>
+let currentQuestionIndex = 0;
+let answers = [];
+
+function startGame() {
+  currentQuestionIndex = 0;
+  answers = [];
+  document.getElementById("question-container").style.display = "block";
+  document.getElementById("result-container").style.display = "none";
+  document.getElementById("bonus-container").style.display = "none";
+  document.getElementById("play-again").style.display = "none";
+  nextQuestion();
+}
+
+function nextQuestion() {
+  if (currentQuestionIndex < questions.length) {
+    showQuestion(questions[currentQuestionIndex]);
+  } else {
+    showResult();
+  }
+}
+
+function showQuestion(question) {
+  const questionContainer = document.getElementById("question-container");
+  questionContainer.innerHTML = `
+    <h2>${question.question}</h2>
+    ${question.options.map(option => `
+      <button onclick="selectAnswer('${option}')">${option}</button>
+    `).join('')}
+  `;
+}
+
+function selectAnswer(option) {
+  answers.push(option);
+  currentQuestionIndex++;
+  nextQuestion();
+}
+
+function showResult() {
+  document.getElementById("question-container").style.display = "none";
+  document.getElementById("result-container").style.display = "block";
+
+  const teaType = determineTeaType();
+  document.getElementById("result-container").innerHTML = `
+    <h2>Your Tea is: ${teaType}</h2>
+    <p>Perfect for your taste, enjoy!</p>
+  `;
+
+  showBonusQuestion();
+}
+
+function determineTeaType() {
+  // A simple algorithm based on answers to determine tea type
+  if (answers.includes("Strong") && answers.includes("English Breakfast")) {
+    return "English Breakfast Tea";
+  } else if (answers.includes("Mild") && answers.includes("Earl Grey")) {
+    return "Earl Grey Tea";
+  } else if (answers.includes("Sweet") && answers.includes("Fruit Tea")) {
+    return "Fruit Tea";
+  } else {
+    return "Green Tea";
+  }
+}
+
+function showBonusQuestion() {
+  const randomBonusQuestion = bonusQuestions[Math.floor(Math.random() * bonusQuestions.length)];
+  document.getElementById("bonus-container").style.display = "block";
+  document.getElementById("bonus-container").innerHTML = `
+    <h2>Bonus Question!</h2>
+    <h3>${randomBonusQuestion.question}</h3>
+    ${randomBonusQuestion.options.map(option => `
+      <button onclick="endGame()">${option}</button>
+    `).join('')}
+  `;
+}
+
+function endGame() {
+  document.getElementById("bonus-container").innerHTML = `
+    <h2>Enjoy Your Tea!</h2>
+    <p>Thanks for playing. Ready for another round?</p>
+  `;
+  document.getElementById("play-again").style.display = "block";
+}
+
+// Start the game initially
+startGame();
+
+
+
+
+
+window.addEventListener('scroll', function() {
+  const tips = document.querySelectorAll('.brew-tip');
+  
+  tips.forEach(tip => {
+    const tipPosition = tip.getBoundingClientRect().top;
+    const windowHeight = window.innerHeight;
+
+    if (tipPosition < windowHeight - 100) {
+      tip.classList.add('active');
+    }
+  });
+});
+
+document.querySelectorAll('.learn-more').forEach(button => {
+  button.addEventListener('click', function() {
+    const parentDiv = this.closest('.brew-tip');
+    const fullDescription = parentDiv.querySelector('.full-description');
+    
+    // Samo prikazivanje teksta kada se klikne dugme
+    if (fullDescription.style.display === 'block' || fullDescription.style.display === '') {
+      fullDescription.style.display = 'block';
+    }
+  });
+});
+
+
+    </script>
+</body>
 </html>
