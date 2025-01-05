@@ -1,0 +1,22 @@
+{% load wagtailimages_tags %}
+
+<nav>
+    {% if self.logo %}
+        <img src="{{ self.logo.url }}" alt="Logo">
+    {% endif %}
+    <ul>
+        {% for link in self.links %}
+            <li>
+                {% if link.url %}
+                    <a href="{{ link.url }}" {% if link.open_in_new_tab %}target="_blank"{% endif %}>
+                        {{ link.title }}
+                    </a>
+                {% elif link.page %}
+                    <a href="{{ link.page.url }}" {% if link.open_in_new_tab %}target="_blank"{% endif %}>
+                        {{ link.title }}
+                    </a>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+</nav>
