@@ -42,8 +42,8 @@
   position: absolute;
   top: 0;
   left: 50%;
-  width: 60px; // Širina talasa
-  height: 15px; // Visina talasa
+  width: 60px; 
+  height: 15px; 
   background: rgba(255, 255, 255, 0.8);
   animation: steam-animation 3s infinite ease-in-out;
   animation-delay: 0s;
@@ -54,11 +54,11 @@
 }
 
 .steam:nth-child(2) {
-  animation-delay: 1s; // Kašnjenje za drugi talas
+  animation-delay: 1s; 
 }
 
 .steam:nth-child(3) {
-  animation-delay: 2s; // Kašnjenje za treći talas
+  animation-delay: 2s; 
 }
 
 @keyframes steam-animation {
@@ -341,7 +341,7 @@ h2 {
 }
 
 .full-description {
-  display: none; /* Skrivaćemo tekst na početku */
+  display: none; 
   margin-top: 15px;
 }
 
@@ -400,19 +400,19 @@ h2 {
   }
   @keyframes rotate {
     0% {
-      transform: rotate(-10deg);  /* Početna pozicija, blago ulevo */
+      transform: rotate(-10deg);  
     }
     50% {
-      transform: rotate(10deg);   /* Srednja pozicija, blago udesno */
+      transform: rotate(10deg);  
     }
     100% {
-      transform: rotate(-10deg);  /* Povratak na početnu poziciju */
+      transform: rotate(-10deg); 
     }
   }
   
   img {
-    animation: rotate 2s ease-in-out infinite;  /* Animacija traje 2 sekunde i ponavlja se beskonačno */
-    transform-origin: center;  /* Rotacija oko centra SVG-a */
+    animation: rotate 2s ease-in-out infinite;  
+    transform-origin: center;  
   }
 }
 

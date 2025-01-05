@@ -1,202 +1,180 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="sr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Moja stranica{% endblock %}</title>
-    {% block head %}
-    <!-- Dodatni head sadržaji, kao što su linkovi ka CSS fajlovima -->
-    {% endblock %}
-    <link rel="stylesheet" href="{% static 'css/main.css' %}">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
-</head>
-<body>
-  <header>
-    <nav>
-        <a class="logo" href="/">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>{% block title %}Moja stranica{% endblock %}</title>
+      {% block head %}
+      {% endblock %}
+      <link rel="stylesheet" href="{% static 'css/main.css' %}">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
+   </head>
+   <body>
+      <header>
+         <nav>
+            <a class="logo" href="/">
             <img src="{% static 'images/logo.png' %}" alt="logo">
-        </a>
-        <div class="hamburger" id="hamburger">
-            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30" viewBox="0 0 50 50">
-                <path d="M 0 7.5 L 0 12.5 L 50 12.5 L 50 7.5 Z M 0 22.5 L 0 27.5 L 50 27.5 L 50 22.5 Z M 0 37.5 L 0 42.5 L 50 42.5 L 50 37.5 Z"></path>
-            </svg>
-        </div>
-        <ul class="nav-list">
-            <li class="nav-item"><a href="#tea-in-uk">About Tea</a></li>
-            <li class="nav-item"><a href="#famous-teas">Famous Tea</a></li>
-            <li class="nav-item"><a href="#how-to-brew">Brew the Perfect Tea</a></li>
-            <li class="nav-item"><a href="#favorite-tea">Your Favorite Tea</a></li>
-        </ul>
-    </nav>
-</header>
-
-<!-- Modal (hamburger menu) -->
-<div id="modal" class="modal">
-    <div class="modal-content">
-        <span id="close" class="close">&times;</span>
-        <ul class="modal-nav-list">
-            <li class="nav-item"><a href="#tea-in-uk">About Tea</a></li>
-            <li class="nav-item"><a href="#famous-teas">Famous Tea</a></li>
-            <li class="nav-item"><a href="#how-to-brew">Brew the Perfect Tea</a></li>
-            <li class="nav-item"><a href="#favorite-tea">Your Favorite Tea</a></li>
-        </ul>
-    </div>
-</div>
-
-    <main>
-        <!-- hero -->
-        <section class="hero">
+            </a>
+            <div class="hamburger" id="hamburger">
+               <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30" viewBox="0 0 50 50">
+                  <path d="M 0 7.5 L 0 12.5 L 50 12.5 L 50 7.5 Z M 0 22.5 L 0 27.5 L 50 27.5 L 50 22.5 Z M 0 37.5 L 0 42.5 L 50 42.5 L 50 37.5 Z"></path>
+               </svg>
+            </div>
+            <ul class="nav-list">
+               <li class="nav-item"><a href="#tea-in-uk">About Tea</a></li>
+               <li class="nav-item"><a href="#famous-teas">Famous Tea</a></li>
+               <li class="nav-item"><a href="#how-to-brew">Brew the Perfect Tea</a></li>
+               <li class="nav-item"><a href="#favorite-tea">Your Favorite Tea</a></li>
+            </ul>
+         </nav>
+      </header>
+      <!-- Modal (hamburger menu) -->
+      <div id="modal" class="modal">
+         <div class="modal-content">
+            <span id="close" class="close">&times;</span>
+            <ul class="modal-nav-list">
+               <li class="nav-item"><a href="#tea-in-uk">About Tea</a></li>
+               <li class="nav-item"><a href="#famous-teas">Famous Tea</a></li>
+               <li class="nav-item"><a href="#how-to-brew">Brew the Perfect Tea</a></li>
+               <li class="nav-item"><a href="#favorite-tea">Your Favorite Tea</a></li>
+            </ul>
+         </div>
+      </div>
+      <main>
+         <!-- hero -->
+         <section class="hero">
             <div class="hero-left">
-              <div class="cup-container">
-                <img src="{% static 'images/tea-cup-hero.png' %}" alt="Šolja čaja" class="tea-cup">
-                <div class="steam"></div>
-                <div class="steam"></div>
-                <div class="steam"></div>
-              </div>
+               <div class="cup-container">
+                  <img src="{% static 'images/tea-cup-hero.png' %}" alt="Šolja čaja" class="tea-cup">
+                  <div class="steam"></div>
+                  <div class="steam"></div>
+                  <div class="steam"></div>
+               </div>
             </div>
             <div class="hero-right">
-              <h1>Discover the Magic of Teas from the UK</h1>
-              <p>Otkrijte priče iza svakog lista čaja i uživajte u trenucima spokoja.</p>
-              <a href="#about" class="cta-button">Explore the Famous Teas</a>
+               <h1>Discover the Magic of Teas from the UK</h1>
+               <p>Otkrijte priče iza svakog lista čaja i uživajte u trenucima spokoja.</p>
+               <a href="#about" class="cta-button">Explore the Famous Teas</a>
             </div>
-          </section>
-        <!--  About Tea in the UK -->
-        <section class="tea-in-uk" id="tea-in-uk">
+         </section>
+         <!--  About Tea in the UK -->
+         <section class="tea-in-uk" id="tea-in-uk">
             <div class="container">
-                <h2 class="section-title">Tea in the UK</h2>
-                <div class="uk-fun-fact">
-                    <div class="content">
-                        <p>Tea in the UK is more than just a beverage – it’s a ritual! From the iconic ‘afternoon tea’ to the everyday cup, tea is deeply embedded in British culture. Whether it's for socializing or taking a break, Brits are known to drink tea at any time of the day.</p>
-                    </div>
-                    <div class="fun-fact">
-                        <h3>Did you know? </h3>
-                        <p>Britons drink an average of 100 million cups of tea every day!</p>
-                    </div>
-                </div>
+               <h2 class="section-title">Tea in the UK</h2>
+               <div class="uk-fun-fact">
+                  <div class="content">
+                     <p>Tea in the UK is more than just a beverage – it’s a ritual! From the iconic ‘afternoon tea’ to the everyday cup, tea is deeply embedded in British culture. Whether it's for socializing or taking a break, Brits are known to drink tea at any time of the day.</p>
+                  </div>
+                  <div class="fun-fact">
+                     <h3>Did you know? </h3>
+                     <p>Britons drink an average of 100 million cups of tea every day!</p>
+                  </div>
+               </div>
             </div>
-        </section>
-        <!-- Famous Teas from the UK -->
-        <section class="famous-teas" id="famous-teas">
+         </section>
+         <!-- Famous Teas from the UK -->
+         <section class="famous-teas" id="famous-teas">
             <div class="container">
-                <h2 class="section-title">Famous Teas from the UK</h2>
-                <div class="cards">
-                    <!-- Card 1: English Breakfast Tea -->
-                    <div class="card">
-                        <div class="card-image">
-                            <img src="{% static 'images/english-breakfast-1.png' %}" alt="English Breakfast Tea">
-                        </div>
-                        <div class="card-description">
-                            <h3>Yorkshire Tea</h3>
-                            <p>A strong and full-bodied tea, perfect for a hearty breakfast.</p>
-                        </div>
-                    </div>
-        
-                    <!-- Card 2: Earl Grey -->
-                    <div class="card">
-                        <div class="card-image">
-                            <img src="{% static 'images/english-breakfast-1.png' %}" alt="Earl Grey">
-                        </div>
-                        <div class="card-description">
-                            <h3>Earl Grey</h3>
-                            <p>A refreshing black tea with a hint of bergamot.</p>
-                        </div>
-                    </div>
-        
-                    <!-- Card 3: Darjeeling -->
-                    <div class="card">
-                        <div class="card-image">
-                            <img src="{% static 'images/english-breakfast-1.png' %}" alt="Darjeeling">
-                        </div>
-                        <div class="card-description">
-                            <h3>Darjeeling</h3>
-                            <p>Known as ‘the champagne of teas,’ this delicate tea is perfect for a relaxing afternoon.</p>
-                        </div>
-                    </div>
-        
-                    <!-- Card 4: Assam -->
-                    <div class="card">
-                        <div class="card-image">
-                            <img src="{% static 'images/english-breakfast-1.png' %}" alt="Assam">
-                        </div>
-                        <div class="card-description">
-                            <h3>Assam</h3>
-                            <p>A rich and robust tea from India, perfect for a morning pick-me-up.</p>
-                        </div>
-                    </div>
-                </div>
+               <h2 class="section-title">Famous Teas from the UK</h2>
+               <div class="cards">
+                  <!-- Card 1: English Breakfast Tea -->
+                  <div class="card">
+                     <div class="card-image">
+                        <img src="{% static 'images/english-breakfast-1.png' %}" alt="English Breakfast Tea">
+                     </div>
+                     <div class="card-description">
+                        <h3>Yorkshire Tea</h3>
+                        <p>A strong and full-bodied tea, perfect for a hearty breakfast.</p>
+                     </div>
+                  </div>
+                  <!-- Card 2: Earl Grey -->
+                  <div class="card">
+                     <div class="card-image">
+                        <img src="{% static 'images/english-breakfast-1.png' %}" alt="Earl Grey">
+                     </div>
+                     <div class="card-description">
+                        <h3>Earl Grey</h3>
+                        <p>A refreshing black tea with a hint of bergamot.</p>
+                     </div>
+                  </div>
+                  <!-- Card 3: Darjeeling -->
+                  <div class="card">
+                     <div class="card-image">
+                        <img src="{% static 'images/english-breakfast-1.png' %}" alt="Darjeeling">
+                     </div>
+                     <div class="card-description">
+                        <h3>Darjeeling</h3>
+                        <p>Known as ‘the champagne of teas,’ this delicate tea is perfect for a relaxing afternoon.</p>
+                     </div>
+                  </div>
+                  <!-- Card 4: Assam -->
+                  <div class="card">
+                     <div class="card-image">
+                        <img src="{% static 'images/english-breakfast-1.png' %}" alt="Assam">
+                     </div>
+                     <div class="card-description">
+                        <h3>Assam</h3>
+                        <p>A rich and robust tea from India, perfect for a morning pick-me-up.</p>
+                     </div>
+                  </div>
+               </div>
             </div>
-        </section>
-
-        
-          
-          
-        <!-- How to Brew the Perfect Tea -->
-         
-        <section id="how-to-brew">
+         </section>
+         <!-- How to Brew the Perfect Tea -->
+         <section id="how-to-brew">
             <h2>How to Brew the Perfect Tea?</h2>
-            
-            
             <!-- First part: Water Temperature -->
             <div class="brew-tip" id="water-temp">
-              <h3>Water Temperature</h3>
-              <p class="short-description">For black tea, water should be nearly boiling (around 100°C), while for green tea, aim for around 70-80°C.</p>
-              <button class="learn-more">Tip </button>
-              <p class="full-description">The right water temperature is essential for brewing your tea perfectly. Boiling water extracts full flavor from black tea, while cooler water helps preserve the delicate taste of green tea.</p>
+               <h3>Water Temperature</h3>
+               <p class="short-description">For black tea, water should be nearly boiling (around 100°C), while for green tea, aim for around 70-80°C.</p>
+               <button class="learn-more">Tip </button>
+               <p class="full-description">The right water temperature is essential for brewing your tea perfectly. Boiling water extracts full flavor from black tea, while cooler water helps preserve the delicate taste of green tea.</p>
             </div>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25">
-              <path style="fill:#232326" d="m18.294 16.793-5.293 5.293V1h-1v21.086l-5.295-5.294-.707.707L12.501 24l6.5-6.5-.707-.707z"/>
+               <path style="fill:#232326" d="m18.294 16.793-5.293 5.293V1h-1v21.086l-5.295-5.294-.707.707L12.501 24l6.5-6.5-.707-.707z"/>
             </svg>
             <!-- Second part: Brew Time -->
             <div class="brew-tip" id="brew-time">
-              <h3>Brew Time</h3>
-              <p class="short-description">For black tea, brew for 3-5 minutes. Green tea only needs 2-3 minutes.</p>
-              <button class="learn-more">Tip</button>
-              <p class="full-description">The brew time determines the strength of your tea. For a perfect cup, avoid steeping for too long as it can make the tea bitter.</p>
+               <h3>Brew Time</h3>
+               <p class="short-description">For black tea, brew for 3-5 minutes. Green tea only needs 2-3 minutes.</p>
+               <button class="learn-more">Tip</button>
+               <p class="full-description">The brew time determines the strength of your tea. For a perfect cup, avoid steeping for too long as it can make the tea bitter.</p>
             </div>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25">
-              <path style="fill:#232326" d="m18.294 16.793-5.293 5.293V1h-1v21.086l-5.295-5.294-.707.707L12.501 24l6.5-6.5-.707-.707z"/>
+               <path style="fill:#232326" d="m18.294 16.793-5.293 5.293V1h-1v21.086l-5.295-5.294-.707.707L12.501 24l6.5-6.5-.707-.707z"/>
             </svg>
             <div class="brew-tip" id="brew-time">
-                <h3>Brew Time</h3>
-                <p class="short-description">For black tea, brew for 3-5 minutes. Green tea only needs 2-3 minutes.</p>
-                <button class="learn-more">Tip</button>
-                <p class="full-description">The brew time determines the strength of your tea. For a perfect cup, avoid steeping for too long as it can make the tea bitter.</p>
-              </div>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25">
-                <path style="fill:#232326" d="m18.294 16.793-5.293 5.293V1h-1v21.086l-5.295-5.294-.707.707L12.501 24l6.5-6.5-.707-.707z"/>
-              </svg>
-              <div class="brew-tip" id="brew-time">
-                <h3>Brew Time</h3>
-                <p class="short-description">For black tea, brew for 3-5 minutes. Green tea only needs 2-3 minutes.</p>
-                <button class="learn-more">Tip</button>
-                <p class="full-description">The brew time determines the strength of your tea. For a perfect cup, avoid steeping for too long as it can make the tea bitter.</p>
-              </div>
-          
-            <!-- Additional parts: Storage Tips and Tea for Occasions... -->
-          </section>
-          
-        <!-- What's Your Favorite Tea? -->
-
-        <section class="favorite-tea" id="favorite-tea">
-          <h2>What’s Your Favorite Tea?</h2>
-          <p>
-            Let me guess—it’s probably Yorkshire Tea, isn’t it? So, what are you waiting for? Brew yourself a cup, take a moment to enjoy it, and if you’re up for it, let’s create something exceptional together. Cheers!          
+               <h3>Brew Time</h3>
+               <p class="short-description">For black tea, brew for 3-5 minutes. Green tea only needs 2-3 minutes.</p>
+               <button class="learn-more">Tip</button>
+               <p class="full-description">The brew time determines the strength of your tea. For a perfect cup, avoid steeping for too long as it can make the tea bitter.</p>
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25">
+               <path style="fill:#232326" d="m18.294 16.793-5.293 5.293V1h-1v21.086l-5.295-5.294-.707.707L12.501 24l6.5-6.5-.707-.707z"/>
+            </svg>
+            <div class="brew-tip" id="brew-time">
+               <h3>Brew Time</h3>
+               <p class="short-description">For black tea, brew for 3-5 minutes. Green tea only needs 2-3 minutes.</p>
+               <button class="learn-more">Tip</button>
+               <p class="full-description">The brew time determines the strength of your tea. For a perfect cup, avoid steeping for too long as it can make the tea bitter.</p>
+            </div>
+         </section>
+         <!-- What's Your Favorite Tea? -->
+         <section class="favorite-tea" id="favorite-tea">
+            <h2>What’s Your Favorite Tea?</h2>
+            <p>
+               Let me guess—it’s probably Yorkshire Tea, isn’t it? So, what are you waiting for? Brew yourself a cup, take a moment to enjoy it, and if you’re up for it, let’s create something exceptional together. Cheers!          
             </p>
             <img src="{% static 'images/image.svg' %}" alt="logo">
-
-      </section>
-</section>
-        
-    </main>
-
-    <footer style="padding: 20px; text-align: center; font-size: 0.9rem;">
-      <p>Brewed with love by a Wagtail & tea lover from Serbia</p>
-      <p>&copy; 2025 Tea Lover. All rights reserved.</p>
-  </footer>
-    <script type="module" src="{% static 'js/yorkteahaven.js' %}"></script>
-</body>
+         </section>
+      </main>
+      <footer style="padding: 20px; text-align: center; font-size: 0.9rem;">
+         <p>Brewed with love by a Wagtail & tea lover from Serbia</p>
+         <p>&copy; 2025 Tea Lover. All rights reserved.</p>
+      </footer>
+      <script type="module" src="{% static 'js/yorkteahaven.js' %}"></script>
+   </body>
 </html>
