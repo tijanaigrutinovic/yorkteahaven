@@ -1,22 +1,10 @@
 {% extends 'base.html' %}
-{% load static %}
-
-{% block title %}
-    {{ page.title }}
-{% endblock %}
+{% load static wagtailimages_tags %}
 
 {% block main %}
-    <div class="main-container">
-        {% for block in page.body %}
-            {% if block.block_type == 'rich_text' %}
-                <div class="rich-text">
-                    {{ block }}
-                </div>
-            {% elif block.block_type == 'navigation' %}
-                <div class="navigation-container">
-                    {% include block.block.meta.template with value=block.value %}
-                </div>
-            {% endif %}
-        {% endfor %}
-    </div>
+    {% load wagtailcore_tags %}
+    
+    {% for block in page.body %}
+        {% include_block block %}
+    {% endfor %}
 {% endblock %}

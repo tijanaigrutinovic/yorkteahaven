@@ -2,26 +2,12 @@ from django.db import models
 from wagtail.models import Page
 from wagtail.fields import StreamField
 from wagtail.admin.panels import FieldPanel
-from wagtail.blocks import RichTextBlock, StructBlock, CharBlock, PageChooserBlock, BooleanBlock, URLBlock, ListBlock
-from wagtail.images.blocks import ImageBlock
+from home.blocks import (
+    NavigationBlock, HeroBlock, TeaInUKBlock,
+    MostFamousTeasBlock, HowToBrewBlock, FavoriteTeasBlock
+)
+from wagtail.blocks import RichTextBlock
 
-class NavigationBlock(StructBlock):
-    logo = ImageBlock(required=False)
-    links = ListBlock(
-        StructBlock(
-            [
-                ('title', CharBlock(required=True)),
-                ('url', URLBlock(required=False)),
-                ('page', PageChooserBlock(required=False)),
-                ('open_in_new_tab', BooleanBlock(required=False)),
-            ]
-        )
-    )
-
-    class Meta:
-        template = "blocks/navigation.html"  # Pazi na putanju
-        icon = "link"
-        label = "Navigacija"
 
 class HomePage(Page):
     navigation = StreamField(
@@ -30,19 +16,25 @@ class HomePage(Page):
         ],
         null=True,
         blank=True,
-        use_json_field=True,  # Ovo je za Wagtail 4.0+
+        use_json_field=True,  # Za Wagtail 4.0+
     )
 
     body = StreamField(
         [
-            ("rich_text", RichTextBlock()),
+            ("hero", HeroBlock()),
+            ("tea_in_uk", TeaInUKBlock()),
+            ("most_famous_teas", MostFamousTeasBlock()),
+            ("how_to_brew", HowToBrewBlock()),
+            ("favorite_teas", FavoriteTeasBlock()),
+            ("rich_text", RichTextBlock()),  # Opciono za dodatni slobodan sadržaj
         ],
         null=True,
         blank=True,
-        use_json_field=True,  # Ovo je za Wagtail 4.0+
+        use_json_field=True,  # Za Wagtail 4.0+
     )
 
     content_panels = Page.content_panels + [
         FieldPanel("navigation"),
         FieldPanel("body"),
     ]
+ 

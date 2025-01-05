@@ -1,28 +1,22 @@
 {% load wagtailimages_tags %}
 
-<div class="navigation">
-    test
+<nav>
     {% if self.logo %}
-        <div class="navigation-logo">
-            <img src="{% image self.logo fill-100x100 %}" alt="{{ value.logo.alt }}">
-        </div>
+        <img src="{{ self.logo.url }}" alt="Logo">
     {% endif %}
-
-    <div class="navigation-links">
-        <ul>
-            {% for link in value.links %}
-                <li>
-                    {% if link.page %}
-                        <a href="{{ link.page.url }}" {% if link.open_in_new_tab %} target="_blank"{% endif %}>
-                            {{ link.title }}
-                        </a>
-                    {% elif link.url %}
-                        <a href="{{ link.url }}" {% if link.open_in_new_tab %} target="_blank"{% endif %}>
-                            {{ link.title }}
-                        </a>
-                    {% endif %}
-                </li>
-            {% endfor %}
-        </ul>
-    </div>
-</div>
+    <ul>
+        {% for link in self.links %}
+            <li>
+                {% if link.url %}
+                    <a href="{{ link.url }}" {% if link.open_in_new_tab %}target="_blank"{% endif %}>
+                        {{ link.title }}
+                    </a>
+                {% elif link.page %}
+                    <a href="{{ link.page.url }}" {% if link.open_in_new_tab %}target="_blank"{% endif %}>
+                        {{ link.title }}
+                    </a>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+</nav>

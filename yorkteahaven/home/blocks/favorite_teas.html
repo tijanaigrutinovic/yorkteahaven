@@ -1,0 +1,17 @@
+{% load wagtailimages_tags %}
+
+<section class="favorite-tea">
+    <h2>{{ self.title }}</h2>
+    <div class="tea-item">
+        {% if self.image %}
+            <img src="{{ self.image.url }}" alt="{{ self.image.alt }}">
+        {% endif %}
+        <div class="details">
+            <h3>{{ self.name }}</h3>
+            <p>{{ self.description }}</p>
+            {% if self.link %}
+                <a href="{{ self.link }}" class="more-info">Learn more</a>
+            {% endif %}
+        </div>
+    </div>
+</section>
