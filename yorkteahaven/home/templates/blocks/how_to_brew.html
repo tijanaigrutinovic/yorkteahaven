@@ -1,0 +1,13 @@
+{% load wagtailimages_tags %}
+
+<section class="brew">
+    <h2>{{ self.title }}</h2>
+    <div class="steps">
+        {% for step in self.steps %}
+            <div class="step">
+                <h3>Step {{ forloop.counter }}</h3>
+                <p>{{ step.description }}</p>
+            </div>
+        {% endfor %}
+    </div>
+</section>

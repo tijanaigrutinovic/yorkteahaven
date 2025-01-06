@@ -65,6 +65,7 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             os.path.join(BASE_DIR, 'yorkteahaven', 'templates'),
+                        os.path.join(BASE_DIR, 'yorkteahaven', 'home', 'templates'),
         ],
         "APP_DIRS": True,
         "OPTIONS": {
