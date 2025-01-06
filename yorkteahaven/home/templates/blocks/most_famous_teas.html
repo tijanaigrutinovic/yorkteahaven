@@ -1,16 +1,20 @@
 {% load wagtailimages_tags %}
 
-<section class="most-famous">
-    <h2>{{ self.title }}</h2>
-    <ul>
+<section class="famous-teas" id="famous-teas">
+    <div class="container">
+       <h2 class="section-title">{{ self.title }}</h2>
+       <div class="cards">
         {% for tea in self.teas %}
-            <li>
-                {% if tea.image %}
-                    <img src="{{ tea.image.url }}" alt="{{ tea.image.alt }}">
-                {% endif %}
+          <div class="card">
+             <div class="card-image">
+                <img src="{{ tea.image.file.url }}" alt="{{ tea.image.alt }}">
+             </div>
+             <div class="card-description">
                 <h3>{{ tea.name }}</h3>
                 <p>{{ tea.description }}</p>
-            </li>
+             </div>
+          </div>
         {% endfor %}
-    </ul>
-</section>
+       </div>
+    </div>
+ </section>
