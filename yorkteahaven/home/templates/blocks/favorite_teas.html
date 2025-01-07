@@ -1,0 +1,7 @@
+{% load wagtailimages_tags %}
+
+<section class="favorite-tea" id="favorite-tea">
+    <h2>{{ self.title }}</h2>
+    <p>{{ self.description }}</p>
+    <img src="{{ self.image.file.url }}" alt="{{ self.image.alt }}">
+ </section>

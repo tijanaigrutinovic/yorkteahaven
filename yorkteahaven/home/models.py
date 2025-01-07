@@ -16,7 +16,7 @@ class HomePage(Page):
         ],
         null=True,
         blank=True,
-        use_json_field=True,  # Za Wagtail 4.0+
+        use_json_field=True,  
     )
 
     body = StreamField(
@@ -26,11 +26,11 @@ class HomePage(Page):
             ("most_famous_teas", MostFamousTeasBlock()),
             ("how_to_brew", HowToBrewBlock()),
             ("favorite_teas", FavoriteTeasBlock()),
-            ("rich_text", RichTextBlock()),  # Opciono za dodatni slobodan sadržaj
+            ("rich_text", RichTextBlock()),  
         ],
         null=True,
         blank=True,
-        use_json_field=True,  # Za Wagtail 4.0+
+        use_json_field=True, 
     )
 
     content_panels = Page.content_panels + [

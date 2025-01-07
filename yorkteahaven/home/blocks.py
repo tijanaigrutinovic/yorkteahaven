@@ -25,27 +25,27 @@ class NavigationBlock(StructBlock):
 
 
 class HeroBlock(StructBlock):
-    title = CharBlock(required=True, help_text="Hero naslov")
-    description = TextBlock(required=True, help_text="Opis hero sekcije")
-    button_text = CharBlock(required=True, help_text="Tekst na dugmetu")
-    button_link = URLBlock(required=True, help_text="Link za dugme")
-    background_image = ImageChooserBlock(required=True, help_text="Pozadinska slika")
+    image = ImageChooserBlock(required=True, help_text="Hero imahe")
+    title = CharBlock(required=True, help_text="Hero title")
+    description = TextBlock(required=False, help_text="Description")
+    button_text = CharBlock(required=False, help_text="Button title")
+    button_link = URLBlock(required=False, help_text="Button Link")
 
     class Meta:
         template = "blocks/hero.html"
         icon = "image"
-        label = "Hero Sekcija"
+        label = "Hero Section"
 
 
 class TeaInUKBlock(StructBlock):
-    title = CharBlock(required=True, help_text="Naslov sekcije")
-    description = TextBlock(required=True, help_text="Opis sekcije")
-    image = ImageChooserBlock(required=True, help_text="Slika za sekciju")
-
+    title = CharBlock(required=True, help_text="Title")
+    description = TextBlock(required=True, help_text="Description")
+    fun_fact = CharBlock(required=False, help_text="Card Title")
+    fun_fact_description = TextBlock(required=False, help_text="Card Description")
     class Meta:
         template = "blocks/tea_in_uk.html"
         icon = "placeholder"
-        label = "Tea in UK Sekcija"
+        label = "Tea in UK"
 
 
 class MostFamousTeasBlock(StructBlock):
@@ -53,35 +53,44 @@ class MostFamousTeasBlock(StructBlock):
     teas = ListBlock(
         StructBlock(
             [
+                ('image', ImageChooserBlock(required=True, help_text="Slika čaja")),
                 ('name', CharBlock(required=True, help_text="Naziv čaja")),
                 ('description', TextBlock(required=True, help_text="Opis čaja")),
-                ('image', ImageChooserBlock(required=True, help_text="Slika čaja")),
             ]
         )
     )
 
     class Meta:
         template = "blocks/most_famous_teas.html"
-        icon = "cup"
-        label = "Najpoznatiji čajevi"
+        icon = "placeholder"
+        label = "Famous Teas"
 
 
 class HowToBrewBlock(StructBlock):
-    title = CharBlock(required=True, help_text="Naslov sekcije")
+    title = CharBlock(required=True,)
     steps = ListBlock(
-        CharBlock(required=True, help_text="Korak za pripremu čaja")
+        StructBlock(
+            [
+                ('card_title', CharBlock(required=True, help_text="Card title")),
+                ('card_description', TextBlock(required=True, help_text="Card Description")),
+                ('tip_button', CharBlock(required=True, help_text="Button title")),
+                ('tip_description', TextBlock(required=True, help_text="Tip Description")),
+
+            ]
+        )
     )
 
     class Meta:
         template = "blocks/how_to_brew.html"
         icon = "list-ol"
-        label = "Kako pripremiti čaj"
+        label = "How to Brew"
 
 
 class FavoriteTeasBlock(StructBlock):
-    title = CharBlock(required=True, help_text="Naslov sekcije")
-    description = TextBlock(required=True, help_text="Poziv za korisnike da podele svoje omiljene čajeve")
-    form_action = URLBlock(required=False, help_text="URL za slanje podataka formulara")
+    title = CharBlock(required=True, help_text="Title")
+    description = TextBlock(required=True, help_text="Description")
+    image = ImageChooserBlock(required=True, help_text="Hero image")
+    
 
     class Meta:
         template = "blocks/favorite_teas.html"

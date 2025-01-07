@@ -1,0 +1,16 @@
+{% load wagtailimages_tags %}
+
+<section class="tea-in-uk" id="tea-in-uk">
+    <div class="container">
+       <h2 class="section-title">{{ self.title}}</h2>
+       <div class="uk-fun-fact">
+          <div class="content">
+             <p>{{ self.description }}</p>
+          </div>
+          <div class="fun-fact">
+             <h3>{{ self.fun_fact }} </h3>
+             <p>{{ self.fun_fact_description }}</p>
+          </div>
+       </div>
+    </div>
+ </section>
