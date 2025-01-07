@@ -181,3 +181,11 @@ WAGTAILADMIN_BASE_URL = "http://example.com"
 WAGTAILDOCS_EXTENSIONS = ['csv', 'docx', 'key', 'odt', 'pdf', 'pptx', 'rtf', 'txt', 'xlsx', 'zip']
 
 ALLOWED_HOSTS = ['tiksimon.pythonanywhere.com', 'www.tiksimon.pythonanywhere.com']
+
+import environ
+
+# Inicijalizuj django-environ
+env = environ.Env()
+environ.Env.read_env()  # Čita .env fajl
+
+SECRET_KEY = env('SECRET_KEY')
