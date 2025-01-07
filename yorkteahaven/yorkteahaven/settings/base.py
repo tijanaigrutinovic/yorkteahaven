@@ -172,8 +172,7 @@ WAGTAILSEARCH_BACKENDS = {
 
 # Base URL to use when referring to full URLs within the Wagtail admin backend -
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
-WAGTAILADMIN_BASE_URL = "http://example.com"
-
+WAGTAILADMIN_BASE_URL = "https://tiksimon.pythonanywhere.com"
 # Allowed file extensions for documents in the document library.
 # This can be omitted to allow all files, but note that this may present a security risk
 # if untrusted users are allowed to upload files -
@@ -189,3 +188,4 @@ env = environ.Env()
 environ.Env.read_env()  # Čita .env fajl
 
 SECRET_KEY = 's3cr3t@k3y!th@tshouldb3r@nd0m&l0ng'
+
