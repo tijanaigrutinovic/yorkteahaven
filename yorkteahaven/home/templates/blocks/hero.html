@@ -1,7 +1,7 @@
 {% load wagtailimages_tags %}
 
 
-<section class="hero">
+<section class="hero" id="hero">
     <div class="hero-left">
        <div class="cup-container">
         <img src="{{ self.image.file.url }}" alt="{{ self.image.alt }}" class="tea-cup">
@@ -13,8 +13,6 @@
     <div class="hero-right">
        <h1>{{ self.title }}</h1>
        <p>{{ self.description }}</p>
-       {% if self.button_text and self.button_link %}
-            <a href="{{ self.button_link }}" class="cta-button">{{ self.button_text }}</a>
-        {% endif %}
+         <a href="{{ self.button_link }}" class="cta-button">{{ self.button_text }}</a>
     </div>
  </section>
