@@ -188,4 +188,4 @@ import environ
 env = environ.Env()
 environ.Env.read_env()  # Čita .env fajl
 
-SECRET_KEY = env('SECRET_KEY')
+SECRET_KEY = 's3cr3t@k3y!th@tshouldb3r@nd0m&l0ng'
