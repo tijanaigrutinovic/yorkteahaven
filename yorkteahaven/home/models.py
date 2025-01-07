@@ -26,7 +26,6 @@ class HomePage(Page):
             ("most_famous_teas", MostFamousTeasBlock()),
             ("how_to_brew", HowToBrewBlock()),
             ("favorite_teas", FavoriteTeasBlock()),
-            ("rich_text", RichTextBlock()),  
         ],
         null=True,
         blank=True,

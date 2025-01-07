@@ -21,11 +21,11 @@ class NavigationBlock(StructBlock):
     class Meta:
         template = "blocks/navigation.html"
         icon = "link"
-        label = "Navigacija"
+        label = "Navigation"
 
 
 class HeroBlock(StructBlock):
-    image = ImageChooserBlock(required=True, help_text="Hero imahe")
+    image = ImageChooserBlock(required=True, help_text="Hero image")
     title = CharBlock(required=True, help_text="Hero title")
     description = TextBlock(required=False, help_text="Description")
     button_text = CharBlock(required=False, help_text="Button title")
@@ -62,7 +62,7 @@ class MostFamousTeasBlock(StructBlock):
 
     class Meta:
         template = "blocks/most_famous_teas.html"
-        icon = "placeholder"
+        icon = "pick"
         label = "Famous Teas"
 
 
@@ -95,4 +95,4 @@ class FavoriteTeasBlock(StructBlock):
     class Meta:
         template = "blocks/favorite_teas.html"
         icon = "form"
-        label = "Omiljeni čajevi"
+        label = "Favorite Tea"
