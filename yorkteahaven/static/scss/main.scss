@@ -1,0 +1,29 @@
+@use 'nav' as *;
+@use 'home' as *;
+
+body{ 
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    background-color: #C1E1C1 !important;
+    overflow-x: hidden;
+}
+
+h1{
+    font-family: 'Unbounded' !important;
+    font-weight: 700;
+}
+
+h2{
+    font-family: 'Unbounded' !important;
+    font-weight: 600;
+}
+
+h3{
+    font-family: 'Unbounded' !important;
+    font-weight: 500;
+}
+
+p{
+    font-family: "Inter";
+}
