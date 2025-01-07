@@ -73,7 +73,7 @@ class HowToBrewBlock(StructBlock):
             [
                 ('card_title', CharBlock(required=True, help_text="Card title")),
                 ('card_description', TextBlock(required=True, help_text="Card Description")),
-                ('tip_button', TextBlock(required=True, help_text="Button title")),
+                ('tip_button', CharBlock(required=True, help_text="Button title")),
                 ('tip_description', TextBlock(required=True, help_text="Tip Description")),
 
             ]

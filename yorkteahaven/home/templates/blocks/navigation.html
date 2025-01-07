@@ -1,22 +1,47 @@
-{% load wagtailimages_tags %}
-
 <nav>
-    {% if self.logo %}
-        <img src="{{ self.logo.url }}" alt="Logo">
-    {% endif %}
-    <ul>
+    <a class="logo" href="/">
+        <img src="{{ self.logo.file.url }}" alt="logo">
+    </a>
+    <div class="hamburger" id="hamburger">
+        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30" viewBox="0 0 50 50">
+            <path d="M 0 7.5 L 0 12.5 L 50 12.5 L 50 7.5 Z M 0 22.5 L 0 27.5 L 50 27.5 L 50 22.5 Z M 0 37.5 L 0 42.5 L 50 42.5 L 50 37.5 Z"></path>
+        </svg>
+    </div>
+    <ul class="nav-list">
         {% for link in self.links %}
-            <li>
-                {% if link.url %}
-                    <a href="{{ link.url }}" {% if link.open_in_new_tab %}target="_blank"{% endif %}>
-                        {{ link.title }}
-                    </a>
-                {% elif link.page %}
-                    <a href="{{ link.page.url }}" {% if link.open_in_new_tab %}target="_blank"{% endif %}>
-                        {{ link.title }}
-                    </a>
+            <li class="nav-item">
+                {% if link.page %}
+                    <a href="{{ link.page.url }}" {% if link.open_in_new_tab %}target="_blank"{% endif %}>{{ link.title }}</a>
+                {% elif link.url %}
+                    <a href="{{ link.url }}" {% if link.open_in_new_tab %}target="_blank"{% endif %}>{{ link.title }}</a>
+                {% else %}
+                <a>
+                    {{ link.title }}
+                </a>
                 {% endif %}
             </li>
         {% endfor %}
     </ul>
 </nav>
+
+<!-- Modal (hamburger menu) -->
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <span id="close" class="close">&times;</span>
+        <ul class="modal-nav-list">
+            {% for link in self.links %}
+                <li class="nav-item">
+                    {% if link.page %}
+                        <a href="{{ link.page.url }}" {% if link.open_in_new_tab %}target="_blank"{% endif %}>{{ link.title }}</a>
+                    {% elif link.url %}
+                        <a href="{{ link.url }}" {% if link.open_in_new_tab %}target="_blank"{% endif %}>{{ link.title }}</a>
+                    {% else %}
+                    <a>
+                        {{ link.title }}
+                    </a>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
